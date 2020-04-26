@@ -1,3 +1,3 @@
-# uup
+# ✨✨✨ uup ✨✨✨
 
-A description of this package.
+A lightweight tcp connectivity testing tool written in Swift
