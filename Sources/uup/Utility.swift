@@ -1,5 +1,6 @@
 import Foundation
 
+@available(OSX 10.13, *)
 func getAddressAndPort(input: String) -> (String?, Int?) {
     var addr: String?;
     var port: Int?;

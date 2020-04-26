@@ -1,6 +1,7 @@
 import Foundation
 import Rainbow
 
+@available(OSX 10.14, *)
 func runTest(addr: String, port: Int, count: Int, delay: Int, rep: Bool) -> Void {
     
     var loops: Int
@@ -12,11 +13,13 @@ func runTest(addr: String, port: Int, count: Int, delay: Int, rep: Bool) -> Void
         loops = count
     }
     
-    for i in 1...loops {
+    for _ in 1...loops {
         
-        print("\(i): \(addr):\(port)", terminator: "-> ")
+        print("\(addr):\(port) -> ", terminator: "")
         
-        let result = testConnection(addr: addr, port: port, timeout: delay)
+        let tester = ConnectionTester(addr: addr, port: port, timeout: delay)
+        
+        let result = tester.testConnection()
         
         if result.Success {
             print("\(result.Message)".green)
@@ -36,8 +39,12 @@ func runTest(addr: String, port: Int, count: Int, delay: Int, rep: Bool) -> Void
 }
 
 
-let options = TestOptions.parseOrExit()
-runTest(addr: options.address, port: options.port, count: options.count, delay: options.delay, rep: options.recurrent)
+if #available(OSX 10.14, *) {
+    let options = TestOptions.parseOrExit()
+    runTest(addr: options.address, port: options.port, count: options.count, delay: options.delay, rep: options.recurrent)
+} else {
+    print("macOS < 10.14 not supported")
+}
 
 
 

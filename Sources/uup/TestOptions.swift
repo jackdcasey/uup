@@ -1,5 +1,6 @@
 import ArgumentParser
 
+@available(OSX 10.13, *)
 struct TestOptions: ParsableCommand {
 
     @Argument(help: "The address you are testing connections to")
@@ -8,7 +9,7 @@ struct TestOptions: ParsableCommand {
     @Option(name: .shortAndLong, default: -1, help: "The port we are attempting to connect to")
     var port: Int
     
-    @Option(name: .shortAndLong, default: 3, help: "How may times will we run the test")
+    @Option(name: .shortAndLong, default: 1, help: "How may times will we run the test")
     var count: Int
     
     @Option(name: .shortAndLong, default: 2, help: "How many seconds to wait betwen tests")
