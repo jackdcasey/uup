@@ -31,7 +31,7 @@ struct TestOptions: ParsableCommand {
         }
         
         guard port != -1 else {
-            throw ValidationError("Port must be specified with --port argument, or in address:port format")
+            throw ValidationError("Port must be specified in address:port format, or with --port parameter")
         }
         
         guard (1..<65535).contains(port) else {
