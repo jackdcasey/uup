@@ -20,3 +20,17 @@ func getAddressAndPort(input: String) -> (String?, Int?) {
     
     return (addr, port)
 }
+
+func getTime() -> String {
+    
+    let date = Date()
+
+    let formatter = DateFormatter()
+    formatter.timeZone = NSTimeZone.local
+    formatter.dateFormat = "hh:mm:ss a"
+    
+    formatter.amSymbol = "am"
+    formatter.pmSymbol = "pm"
+    
+    return formatter.string(from: date)
+}

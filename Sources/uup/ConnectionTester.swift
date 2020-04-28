@@ -1,21 +1,28 @@
 import Foundation
+import Rainbow
 import Socket
 
+@available(OSX 10.14, *)
 class ConnectionTester {
     
-    var addr: String;
-    var port: Int;
-    var timeout: Int;
-    var timeoutms: Int;
+    var addr: String
+    var port: Int
+    var count: Int
+    var delay: Int
+    var rep: Bool
+    var timeout: Int
+    var timeoutms: Int
     
-    init(addr: String, port: Int, timeout: Int) {
+    init(addr: String, port: Int, count: Int, delay: Int, rep: Bool, timeout: Int) {
         self.addr = addr
         self.port = port
+        self.count = count
+        self.delay = delay
+        self.rep = rep
         self.timeout = timeout
         self.timeoutms = timeout * 1000
     }
     
-    @available(OSX 10.14, *)
     func testConnection() -> ConnectionTesterResult {
         
         let result = ConnectionTesterResult()
@@ -32,7 +39,6 @@ class ConnectionTester {
         return result
     }
     
-    @available(OSX 10.14, *)
     func openConnection() throws -> Void {
         
         let socket = try Socket.create()
@@ -43,6 +49,41 @@ class ConnectionTester {
         catch let error {
             socket.close()
             throw error
+        }
+    }
+    
+    func start() -> Void {
+            
+        var loops: Int
+        
+        if rep {
+            loops = Int.max
+        }
+        else {
+            loops = count
+        }
+        
+        for _ in 1...loops {
+            
+            print("\(getTime())".lightBlack, terminator: " ")
+            print("\(addr):\(port) ->", terminator: " ")
+                        
+            let result = testConnection()
+            
+            if result.Success {
+                print("\(result.Message)".green)
+            }
+            else {
+                print("\(result.Message)".red)
+            }
+            
+            
+            if 1 == loops {
+                return
+            }
+            else {
+                sleep(UInt32(delay))
+            }
         }
     }
 }
