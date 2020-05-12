@@ -17,12 +17,18 @@ let package = Package(
         .target(
             name: "uup",
             dependencies: [
+                "uupCore"
+            ]),
+        .target(
+            name: "uupCore",
+            dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser"),
                 .product(name: "Rainbow", package: "Rainbow"),
                 .product(name: "Socket", package: "Socket")
             ]),
         .testTarget(
             name: "uupTests",
-            dependencies: ["uup"]),
+            dependencies: ["uupCore"]
+            ),
     ]
 )

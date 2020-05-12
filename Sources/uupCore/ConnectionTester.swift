@@ -4,7 +4,7 @@ import Socket
 
 @available(OSX 10.14, *)
 class ConnectionTester {
-    
+
     var addr: String
     var port: Int
     var count: Int
@@ -12,7 +12,7 @@ class ConnectionTester {
     var rep: Bool
     var timeout: Int
     var timeoutms: Int
-    
+
     init(addr: String, port: Int, count: Int, delay: Int, rep: Bool, timeout: Int) {
         self.addr = addr
         self.port = port
@@ -22,11 +22,11 @@ class ConnectionTester {
         self.timeout = timeout
         self.timeoutms = timeout * 1000
     }
-    
+
     func testConnection() -> ConnectionTesterResult {
-        
+
         let result = ConnectionTesterResult()
-        
+
         do {
             try openConnection()
             result.Success = true
@@ -35,14 +35,14 @@ class ConnectionTester {
             result.Success = false
             result.Message = "Failed"
         }
-        
+
         return result
     }
-    
+
     func openConnection() throws -> Void {
-        
+
         let socket = try Socket.create()
-        
+
         do {
             try socket.connect(to: self.addr, port: Int32(self.port), timeout: UInt(self.timeoutms))
         }
@@ -51,33 +51,33 @@ class ConnectionTester {
             throw error
         }
     }
-    
+
     func start() -> Void {
-            
+
         var loops: Int
-        
+
         if rep {
             loops = Int.max
         }
         else {
             loops = count
         }
-        
+
         for _ in 1...loops {
-            
+
             print("\(getTime())".lightBlack, terminator: " ")
             print("\(addr):\(port) ->", terminator: " ")
-                        
+
             let result = testConnection()
-            
+
             if result.Success {
                 print("\(result.Message)".green)
             }
             else {
                 print("\(result.Message)".red)
             }
-            
-            
+
+
             if 1 == loops {
                 return
             }
@@ -90,8 +90,8 @@ class ConnectionTester {
 
 
 class ConnectionTesterResult {
-    
+
     var Success: Bool = false
     var Message: String = ""
-    
+
 }

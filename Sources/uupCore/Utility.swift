@@ -1,11 +1,11 @@
 import Foundation
 
 @available(OSX 10.13, *)
-func getAddressAndPort(input: String) -> (String?, Int?) {
+public func getAddressAndPort(input: String) -> (String?, Int?) {
     var addr: String?;
     var port: Int?;
     
-    let pattern = "^(?<address>[a-z0-9.]+):?(?<port>\\d+)?$"
+    let pattern = "^(?<address>[a-z0-9.-]+):?(?<port>\\d+)?$"
     let regex = try! NSRegularExpression(pattern: pattern, options: .caseInsensitive)
     
     if let match = regex.firstMatch(in: input, options: [], range: NSRange(location: 0, length: input.utf16.count)) {
