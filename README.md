@@ -1,6 +1,6 @@
 # uup (You Up?)
 
-A fast and lightweight ping alternative for macOS 🏎
+A fast and lightweight ping alternative for macOS
 
 ```
 ~ ❯ uup github.com:443                                                                                                       
@@ -9,7 +9,7 @@ github.com:443 -> Success
 ~ ❯ uup someofflineserver.com:443                                                                                           
 someofflineserver.com:443 -> Failed
 ```
-uup connects using TCP instead of ICMP, allowing for greater compatibility ⚡️
+uup connects using TCP instead of ICMP, allowing for greater compatibility
 
 ### Example:
 uup removes the guess work when rebooting a server, and waiting for it to come back online:
