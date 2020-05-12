@@ -1,8 +1,6 @@
 # uup (You Up?)
 
-A minimal command-line tool to check if a server is online for macOS
-
-uup will attempt to connect to an address, and report the result: 
+A modern and lightweight ping alternative for macOS
 
 ```
 ~ ❯ uup github.com:443                                                                                                       
@@ -11,16 +9,16 @@ github.com:443 -> Success
 ~ ❯ uup someofflineserver.com:443                                                                                           
 someofflineserver.com:443 -> Failed
 ```
-This removes the guess work when rebooting a server, and waiting for it to come back online:
+uup leverages a TCP connection for better compatibility compared with ICMP
+
+### Example:
+uup removes the guess work when rebooting a server, and waiting for it to come back online:
 
 ![image](./screenshots/screenshot1.png)
 
-In many cases, this is more reliable than using ping. Often, ICMP is blocked at the network level. By connecting to an open port, we know it won't be blocked
-
 ### Installation:
 ```
-git clone https://github.com/jackdcasey/uup
-cd uup
+git clone https://github.com/jackdcasey/uup && cd uup
 make install
 ```
 
