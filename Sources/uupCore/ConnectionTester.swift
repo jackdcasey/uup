@@ -63,7 +63,7 @@ class ConnectionTester {
             loops = count
         }
 
-        for _ in 1...loops {
+        for i in 1...loops {
 
             print("\(getTime())".lightBlack, terminator: " ")
             print("\(addr):\(port) ->", terminator: " ")
@@ -78,7 +78,7 @@ class ConnectionTester {
             }
 
 
-            if 1 == loops {
+            if i == loops {
                 return
             }
             else {
