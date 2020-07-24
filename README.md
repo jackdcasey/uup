@@ -12,9 +12,8 @@ someofflineserver.com:443 -> Failed
 uup connects using TCP instead of ICMP, allowing for greater compatibility
 
 ### Example:
-uup removes the guess work when rebooting a server, and waiting for it to come back online:
-
-![image](./screenshots/screenshot1.png)
+In this example, we reboot a server while using uup to monitor it coming back online
+![image](./screenshots/uup_demo.gif)
 
 ### Installation:
 
