@@ -17,6 +17,12 @@ uup removes the guess work when rebooting a server, and waiting for it to come b
 ![image](./screenshots/screenshot1.png)
 
 ### Installation:
+
+#### Homebrew (recommended):
+```
+brew install jackdcasey/tap/uup
+```
+#### From source:
 ```
 git clone https://github.com/jackdcasey/uup && cd uup
 make install
@@ -38,8 +44,16 @@ OPTIONS:
   -r, --recurrent         If we want to run test indefinitely
   -h, --help              Show help information.
   ```
-  ### Uninstallation:
+### Uninstallation:
+
+#### Homebrew:
 ```
+brew uninstall uup
+```
+#### From source:
+
+```
+cd <path to uup repo>
 make uninstall
 ```
 
