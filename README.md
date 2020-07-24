@@ -2,13 +2,8 @@
 
 A fast and lightweight ping alternative for macOS
 
-```
-~ ❯ uup github.com:443                                                                                                       
-github.com:443 -> Success
+![image](./screenshots/commands.png)
 
-~ ❯ uup someofflineserver.com:443                                                                                           
-someofflineserver.com:443 -> Failed
-```
 uup connects using TCP instead of ICMP, allowing for greater compatibility
 
 ### Example:
