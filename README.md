@@ -22,22 +22,22 @@ git clone https://github.com/jackdcasey/uup && cd uup
 make install
 ```
 
-### Usage: 
+### Usage:
 ```
-USAGE: test-options <address> [--port <port>] [--count <count>] [--delay <delay>] [--recurrent]
+USAGE: test-options <address> [--port <port>] [--count <count>] [--delay <delay>] [--recurrent] [--time]
 
 ARGUMENTS:
-  <address>               The address you are testing connections to
+  <address>               The address used to connect to
 
 OPTIONS:
-  -p, --port <port>       The port we are attempting to connect to
+  -p, --port <port>       The TCP port used to connect with (default: 443)
                           Can also be specified in address:port format
-                          
-  -c, --count <count>     How may times will we run the test (default: 1)
+  -c, --count <count>     How may times to run the test (default: 1)
   -d, --delay <delay>     How many seconds to wait betwen tests (default: 2)
-  -r, --recurrent         If we want to run test indefinitely
-  -h, --help              Show help information.
-  ```
+  -r, --recurrent         Run test indefinitely
+  -t, --time              Display the time when testing
+  -h, --help              Show help information
+```
 ### Uninstallation:
 
 #### Homebrew:
@@ -51,4 +51,4 @@ cd <path to uup repo>
 make uninstall
 ```
 
-  
+
