@@ -12,7 +12,8 @@ public final class Starter {
             count: options.count,
             delay: options.delay,
             rep: options.recurrent,
-            timeout: 2)
+            timeout: 2,
+            time: options.time)
 
         tester.start()
     }

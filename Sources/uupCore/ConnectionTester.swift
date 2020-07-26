@@ -12,8 +12,9 @@ class ConnectionTester {
     var rep: Bool
     var timeout: Int
     var timeoutms: Int
+    var time: Bool
 
-    init(addr: String, port: Int, count: Int, delay: Int, rep: Bool, timeout: Int) {
+    init(addr: String, port: Int, count: Int, delay: Int, rep: Bool, timeout: Int, time: Bool) {
         self.addr = addr
         self.port = port
         self.count = count
@@ -21,6 +22,7 @@ class ConnectionTester {
         self.rep = rep
         self.timeout = timeout
         self.timeoutms = timeout * 1000
+        self.time = time
     }
 
     func testConnection() -> ConnectionTesterResult {
@@ -65,7 +67,10 @@ class ConnectionTester {
 
         for i in 1...loops {
 
-            print("\(getTime())".lightBlack, terminator: " ")
+            if time {
+                print("\(getTime())".lightBlack, terminator: " ")
+            }
+
             print("\(addr):\(port) ->", terminator: " ")
 
             let result = testConnection()
