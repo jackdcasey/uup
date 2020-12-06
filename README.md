@@ -24,6 +24,8 @@ make install
 
 ### Usage:
 ```
+OVERVIEW: A fast and lightweight ping alternative
+
 USAGE: test-options <address> [--port <port>] [--count <count>] [--delay <delay>] [--recurrent] [--time]
 
 ARGUMENTS:
@@ -36,7 +38,8 @@ OPTIONS:
   -d, --delay <delay>     How many seconds to wait betwen tests (default: 2)
   -r, --recurrent         Run test indefinitely
   -t, --time              Display the time when testing
-  -h, --help              Show help information
+  --version               Show the version.
+  -h, --help              Show help information.
 ```
 ### Uninstallation:
 
