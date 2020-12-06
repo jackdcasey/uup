@@ -3,7 +3,7 @@
 These steps will first build a binary of uup, publish to Github then publish to homebrew
 
 ## Building
-
+1. Update version in: `./Sources/uupCore/TestOptions.swift`
 1. `swift build -c release --disable-sandbox`
 
 A binary will be built in `.build/release/uup`
