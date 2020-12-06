@@ -65,6 +65,8 @@ class ConnectionTester {
             loops = count
         }
 
+        var successfulTests: Int = 0
+
         for i in 1...loops {
 
             if time {
@@ -77,18 +79,25 @@ class ConnectionTester {
 
             if result.Success {
                 print("\(result.Message)".green)
+                successfulTests += 1
             }
             else {
                 print("\(result.Message)".red)
             }
 
-
             if i == loops {
-                return
+                break
             }
             else {
                 sleep(UInt32(delay))
             }
+        }
+
+        if successfulTests == loops {
+            exit(0)
+        }
+        else {
+            exit(1)
         }
     }
 }
