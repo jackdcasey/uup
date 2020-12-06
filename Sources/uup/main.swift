@@ -1,6 +1,7 @@
 import uupCore
 
 if #available(OSX 10.14, *) {
+
     do {
         try Starter.Run()
     } catch {
@@ -9,6 +10,3 @@ if #available(OSX 10.14, *) {
 } else {
     print("macOS < 10.14 not supported")
 }
-
-
-
