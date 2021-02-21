@@ -1,6 +1,6 @@
 # uup (You Up?)
 
-A fast and lightweight ping alternative / TCP tester for macOS
+A fast and lightweight TCP tester for macOS
 
 ![image](./screenshots/commands.png)
 
