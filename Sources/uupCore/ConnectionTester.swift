@@ -56,6 +56,9 @@ class ConnectionTester {
 
     func start() -> Void {
 
+        let iso8601DateFormatter = ISO8601DateFormatter()
+        iso8601DateFormatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+
         var loops: Int
 
         if rep {
@@ -70,7 +73,7 @@ class ConnectionTester {
         for i in 1...loops {
 
             if time {
-                print("\(getTime())".lightBlack, terminator: " ")
+                print("\(iso8601DateFormatter.string(from: Date()))".lightBlack, terminator: " ")
             }
 
             print("\(addr):\(port) ->", terminator: " ")
