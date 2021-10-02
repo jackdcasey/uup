@@ -5,13 +5,13 @@ struct TestOptions: ParsableCommand {
 
     static var configuration = CommandConfiguration(
         abstract: "A fast and lightweight ping alternative",
-        version: "1.4"
+        version: "1.5"
     )
 
     @Argument(help: "The address used to connect to")
     var address: String
 
-    @Option(name: .shortAndLong, default: -1, help: "The TCP port used to connect with")
+    @Argument(default: -1, help: "The TCP port used to connect with")
     var port: Int
 
     @Option(name: .shortAndLong, default: 1, help: "How may times to run the test")
@@ -38,11 +38,9 @@ struct TestOptions: ParsableCommand {
             port = cport
         }
 
-        if port == -1 {
-            port = 443
+        guard port != -1 else {
+            throw ValidationError("Port must be specified")
         }
-
-        // Validation
 
         guard (1..<65535).contains(port) else {
             throw ValidationError("Port must be between 1 - 65535. Port was: \(port)")
