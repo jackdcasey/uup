@@ -76,7 +76,7 @@ class ConnectionTester {
                 print("\(iso8601DateFormatter.string(from: Date()))".lightBlack, terminator: " ")
             }
 
-            print("\(addr):\(port) ->", terminator: " ")
+            print("\(addr) → \(port):", terminator: " ")
 
             let result = testConnection()
 
