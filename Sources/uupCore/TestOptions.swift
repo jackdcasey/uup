@@ -5,7 +5,7 @@ struct TestOptions: ParsableCommand {
 
     static var configuration = CommandConfiguration(
         abstract: "A fast and lightweight ping alternative",
-        version: "1.3"
+        version: "1.4"
     )
 
     @Argument(help: "The address used to connect to")
